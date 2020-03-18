@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "Hello",
+    name: "OrganizerCLI",
     dependencies: [
         .package(url: "https://github.com/mtynior/ColorizeSwift.git", from: "1.2.0"),
         .package(url: "https://github.com/kylef/Commander.git", from: "0.9.1"),
@@ -12,10 +12,10 @@ let package = Package(
     targets: [
 
         .target(
-            name: "Hello",
+            name: "OrganizerCLI",
             dependencies: ["ColorizeSwift","Commander"]),
         .testTarget(
-            name: "HelloTests",
+            name: "HelloTOrganizerCLItests",
             dependencies: ["ColorizeSwift","Commander"]),
     ]
 )
