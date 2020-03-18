@@ -15,7 +15,7 @@ let package = Package(
             name: "OrganizerCLI",
             dependencies: ["ColorizeSwift","Commander"]),
         .testTarget(
-            name: "HelloTOrganizerCLItests",
+            name: "OrganizerCLITests",
             dependencies: ["ColorizeSwift","Commander"]),
     ]
 )
