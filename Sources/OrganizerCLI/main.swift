@@ -55,114 +55,31 @@ func listAllFiles(_ path : String)throws {
 
 
 
-func transferAllOfType(_ path : String) throws {
-    let fileManager = FileManager.default
-    let home = fileManager.homeDirectoryForCurrentUser
-    var extensions  = [String]()
-    let fm = Controller.init()
-    var set = CharacterSet()
-    set.insert(charactersIn: ", ;.")
-    
-    //    let dadosJSon = getJson()
-    //    guard let unJson = dadosJSon else {
-    //        exit(0)
-    //    }
-    //
-    //    guard let fileToSniff = unJson.path else {
-    //        exit(0)
-    //    }
-    let fileToSniff:String = path
-    let dirURL = home.appendingPathComponent(fileToSniff)
-    let fileURLs = try fileManager.contentsOfDirectory(at: dirURL, includingPropertiesForKeys: nil)
-    
-    
-    
-    
-    for file in fileURLs {
-        if !extensions.contains(file.pathExtension) && file.pathExtension != ""{
-            extensions.append(file.pathExtension)
-        }
-    }
-    
-    
-    
-    for ext in extensions{
-        var linha = String(1+(extensions.firstIndex(of: ext)!))
-        linha.append(" : ")
-        linha.append(ext)
-        print(linha)
-    }
-    
-    if extensions.isEmpty {
-        print(
-        """
-        
-        Nao ha arquivos nessa pasta
-        
-        """.bold().red())
-        
-        exit(0)
-    }
 
-    guard let fileType = readLine() else {
-        print(
-        """
-        
-        Valor de entrada invalido
-        
-        """.bold().red())
-        exit(0)
-    }
-    
-    let choosed = fileType.components(separatedBy: set)
-    var optChoosed = [Int].init()
-
-    for opt in choosed{
-        if let temp = Int(opt){
-            optChoosed.append(temp)
-        }else{
-        print(
-        """
-        
-        Valor de entrada invalido
-        
-        """.bold().red())
-        exit(0)
-        }
-    }
-    
-    for choose in optChoosed{
-        var newDirectory = try fm.createFolder(dirURL, extensions[(choose) - 1])
-        for file in fileURLs {
-            if (file.pathExtension == extensions[choose - 1]) {
-                newDirectory = newDirectory.appendingPathComponent(file.lastPathComponent)
-                try fm.transferFiles(file, newDirectory)
-                newDirectory = newDirectory.deletingLastPathComponent()
-            }
-        }
-    }
-    system("clear")
-    print(
-        """
-        
-        Arquivos transferidos com sucesso!
-        
-        """.bold().underline().cyan())
-}
-
+let controller = Controller.init()
 
 let main = {
     Group{
         $0.command(("organize"),
                    Option("path",default: "/Desktop/teste", flag: "p" ,description: "Type what the root path for organize"),
-                   description: "Organize the files in some path"
+                   description: "Organize the files in a folder for each type"
         ) { path in
-            try transferAllOfType(path)
+            try controller.transferAllOfType(path)
         };
         
-        $0.command(("list"),Option("path", default: "/", flag: "p",description: "Type what the root path for organize"), description: "List All Files in some path"){path in
+        $0.command(("list"),Option("path", default: "/", flag: "p",description: "Type what the root path for organize"), 
+        description: "List all Files in a folder"
+        ){path in
             try listAllFiles(path)
-        }
+        };
+
+        $0.command(("organizeName"),
+                   Option("path",default: "/Desktop/teste", flag: "p" ,description: "Type what the root path for organize"),
+                   Option("name",default: "organizer", flag: "n" ,description: "Type what a name for the folder to organize"),
+                   description: "Organize the choosed files in a folder"
+        ) { path,name in
+            try controller.transferAllOfTypeName(path,name)
+        };
         
         
     }
