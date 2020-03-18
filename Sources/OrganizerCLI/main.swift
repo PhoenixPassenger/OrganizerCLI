@@ -70,7 +70,12 @@ let main = {
         $0.command(("list"),Option("path", default: "/", flag: "p",description: "Type what the root path for organize"), 
         description: "List all Files in a folder"
         ){path in
+        do{
             try listAllFiles(path)
+        } catch{
+            print("Erro".bold().red())
+        }
+            
         };
 
         $0.command(("organizeName"),

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ColorizeSwift
 
 class Controller: NSObject {
     
@@ -21,7 +22,7 @@ class Controller: NSObject {
             let files = try fm.contentsOfDirectory(atPath: folder.path)
             return files.map{ return folder.appendingPathComponent($0)}
         } catch {
-            print(error)
+            print("This path is unavailable".bold().red())
             return []
         }
     }
