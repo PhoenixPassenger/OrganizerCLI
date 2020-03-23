@@ -50,15 +50,6 @@ class Controller: NSObject {
     let fm = Controller.init()
     var set = CharacterSet()
     set.insert(charactersIn: ", ;.")
-    
-    //    let dadosJSon = getJson()
-    //    guard let unJson = dadosJSon else {
-    //        exit(0)
-    //    }
-    //
-    //    guard let fileToSniff = unJson.path else {
-    //        exit(0)
-    //    }
     let fileToSniff:String = path
     let dirURL = home.appendingPathComponent(fileToSniff)
     let fileURLs = try fileManager.contentsOfDirectory(at: dirURL, includingPropertiesForKeys: nil)
@@ -225,63 +216,7 @@ func transferAllOfTypeName(_ path : String,_ name : String) throws {
         Arquivos transferidos com sucesso!
         
         """.bold().underline().cyan())
-}
-    
-    // // APAGAR ARQUIVOS
-    // func deleteFiles() throws -> Void {
-    //     func deleteIndeed(_ files:[URL],_ toDelete:Int)throws{
-    //         try fm.trashItem(at: files[toDelete - 1], resultingItemURL: nil)
-    //     }
-    //     print("Digite o path: ")
-        
-    //     let path = readLine()
-    //     guard let unPath = path else{
-    //         print("Digite um numero valido.")
-    //         exit(0)
-            
-    //     }
-    //     let folder = fm.homeDirectoryForCurrentUser.appendingPathComponent(unPath)
-        
-    //     print("")
-    //     let files = readFiles(folder:folder)
-    //     files.enumerated().forEach { (i, url) in
-    //         print(String(i+1) + " - " + url.lastPathComponent  )
-    //     }
-    //     print("")
-    //     let indices = readLine() ?? nil
-    //     guard let unIndices = indices else{
-    //         print("Digite um numero valido.")
-    //         exit(0)
-    //     }
-        
-    //     var set = CharacterSet()
-    //     set.insert(charactersIn: ", ;.")
-    //     let choosed = unIndices.components(separatedBy: set)
-    //     try choosed.indices.forEach{ (val) in
-    //         let toDelete = Int(choosed[val]) ?? -1
-    //         let isDir = (try files[toDelete - 1].resourceValues(forKeys: [.isDirectoryKey])).isDirectory
-    //         if isDir ?? true{
-    //             print("ARE YOU SURE? y/N :")
-    //             let answer = readLine() ?? "N"
-    //             print(answer)
-    //             let answerBool = answer == "y"
-    //             if answerBool{
-    //                 try deleteIndeed(files, toDelete)
-    //             }else{
-    //                 print("Ok then")
-    //             }
-    //         }else{
-    //             try deleteIndeed(files, toDelete)
-    //         }
-    //     }
-        
-        
-    // }
-    
-    
-    
-    
-    
+}  
     
 }
 
