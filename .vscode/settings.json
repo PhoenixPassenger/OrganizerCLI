@@ -1,0 +1,6 @@
+{
+    "apple-swift-format.configSearchPaths": [
+        ".swift-format",
+        ".swift"
+    ]
+}

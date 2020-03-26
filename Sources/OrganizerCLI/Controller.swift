@@ -220,3 +220,43 @@ func transferAllOfTypeName(_ path : String,_ name : String) throws {
     
 }
 
+
+
+func listAllFiles(_ path : String)throws {
+    let con = Controller.init()
+    let fileManager = FileManager.default
+    let home = fileManager.homeDirectoryForCurrentUser
+    let fullPath =  home.appendingPathComponent(path)
+    let files = con.readFiles(folder: fullPath)
+    for file in files{
+        if file.pathExtension.isEmpty {
+            print((file.lastPathComponent).bold().colorize(.darkSeaGreen3_2, background: .black))
+        }else{
+            print((file.lastPathComponent).bold().colorize(.cyan2, background: .black))
+        }
+        
+    }
+}
+
+func checkDuplicates(_ path : String)throws{
+    let con = Controller.init()
+    let fileManager = FileManager.default
+    let home = fileManager.homeDirectoryForCurrentUser
+    let fullPath =  home.appendingPathComponent(path)
+    let files = con.readFiles(folder: fullPath)
+    var resp:Bool
+    for file1 in files{
+        for file2 in files {
+            if(file1.lastPathComponent == file2.lastPathComponent){
+            }
+            else {
+                resp =  fileManager.contentsEqual(atPath:file1.path, andPath:file2.path)
+                if resp {
+                    try fileManager.removeItem(atPath: file1.path)
+                    print("File \(file2.lastPathComponent) that is a duplicate of \(file1.lastPathComponent) removed".bold().red())
+                }
+            }
+           
+}
+}
+}
