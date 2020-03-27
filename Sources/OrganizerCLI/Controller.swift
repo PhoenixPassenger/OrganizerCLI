@@ -99,7 +99,18 @@ class Controller: NSObject {
         
         for opt in choosed{
             if let temp = Int(opt){
-                optChoosed.append(temp)
+                if temp <= extensions.count {
+                    optChoosed.append(temp)
+                }else{
+                    print(
+                        """
+                           
+                           Valor de entrada invalido
+                           
+                           """.bold().red())
+                    exit(0)
+                }
+                
             }else{
                 print(
                     """
@@ -188,7 +199,17 @@ class Controller: NSObject {
         
         for opt in choosed{
             if let temp = Int(opt){
-                optChoosed.append(temp)
+                if temp <= extensions.count {
+                    optChoosed.append(temp)
+                }else{
+                    print(
+                        """
+                           
+                           Valor de entrada invalido
+                           
+                           """.bold().red())
+                    exit(0)
+                }
             }else{
                 print(
                     """
