@@ -77,7 +77,7 @@ class Controller: NSObject {
             print(
                 """
         
-        Nao ha arquivos nessa pasta
+        Empty directory
         
         """.bold().red())
             
@@ -88,8 +88,8 @@ class Controller: NSObject {
             print(
                 """
         
-        Valor de entrada invalido
-        
+        Invalid entry
+
         """.bold().red())
             exit(0)
         }
@@ -105,8 +105,8 @@ class Controller: NSObject {
                     print(
                         """
                            
-                           Valor de entrada invalido
-                           
+                           Invalid entry
+
                            """.bold().red())
                     exit(0)
                 }
@@ -115,8 +115,8 @@ class Controller: NSObject {
                 print(
                     """
         
-        Valor de entrada invalido
-        
+        Invalid entry
+
         """.bold().red())
                 exit(0)
             }
@@ -136,8 +136,8 @@ class Controller: NSObject {
         print(
             """
         
-        Arquivos transferidos com sucesso!
-        
+        Files transferred successfully
+
         """.bold().underline().cyan())
     }
     
@@ -177,7 +177,7 @@ class Controller: NSObject {
             print(
                 """
         
-        Nao ha arquivos nessa pasta
+        Empty directory
         
         """.bold().red())
             
@@ -188,8 +188,8 @@ class Controller: NSObject {
             print(
                 """
         
-        Valor de entrada invalido
-        
+        Invalid entry
+
         """.bold().red())
             exit(0)
         }
@@ -205,8 +205,8 @@ class Controller: NSObject {
                     print(
                         """
                            
-                           Valor de entrada invalido
-                           
+                           Invalid entry
+
                            """.bold().red())
                     exit(0)
                 }
@@ -214,7 +214,7 @@ class Controller: NSObject {
                 print(
                     """
         
-        Valor de entrada invalido
+        Invalidy entry
         
         """.bold().red())
                 exit(0)
@@ -235,7 +235,7 @@ class Controller: NSObject {
         print(
             """
         
-        Arquivos transferidos com sucesso!
+        Files transferred successfully
         
         """.bold().underline().cyan())
     }
