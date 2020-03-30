@@ -14,6 +14,6 @@ Code is compatible with **OSX 10.12 and greater versions**. We'll keep this upda
 
 
 ## How to use?
-[To see the list of commands type] OrganizerCLI --help
+- To see the list of commands type **OrganizerCLI --help**
 
 
