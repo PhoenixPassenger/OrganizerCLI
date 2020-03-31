@@ -55,16 +55,11 @@ class Controller: NSObject {
         let dirURL = home.appendingPathComponent(fileToSniff)
         let fileURLs = try fileManager.contentsOfDirectory(at: dirURL, includingPropertiesForKeys: nil)
         
-        
-        
-        
         for file in fileURLs {
             if !extensions.contains(file.pathExtension) && file.pathExtension != ""{
                 extensions.append(file.pathExtension)
             }
         }
-        
-        
         
         for ext in extensions{
             var linha = String(1+(extensions.firstIndex(of: ext)!))
@@ -154,17 +149,12 @@ class Controller: NSObject {
         let fileToSniff:String = path
         let dirURL = home.appendingPathComponent(fileToSniff)
         let fileURLs = try fileManager.contentsOfDirectory(at: dirURL, includingPropertiesForKeys: nil)
-        
-        
-        
-        
+           
         for file in fileURLs {
             if !extensions.contains(file.pathExtension) && file.pathExtension != ""{
                 extensions.append(file.pathExtension)
             }
         }
-        
-        
         
         for ext in extensions{
             var linha = String(1+(extensions.firstIndex(of: ext)!))

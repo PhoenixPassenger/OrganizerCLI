@@ -12,7 +12,7 @@ final class OrganizerCLITests: XCTestCase {
             return
         }
 
-        let fooBinary = productsDirectory.appendingPathComponent("Hello")
+        let fooBinary = productsDirectory.appendingPathComponent("OrganizerCLI")
 
         let process = Process()
         process.executableURL = fooBinary

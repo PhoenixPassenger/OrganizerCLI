@@ -31,12 +31,7 @@ if #available(OSX 10.12, *) {
             $0.command(("list"),Option("path", default:"/Desktop", flag: "p",description: "Type what the root path for organize"),
             description: "List all Files in a folder"
             ){path in
-            do{
                 try controller.listAllFiles(path)
-            } catch{
-                print("Erro".bold().red())
-            }
-                
             };
 
             $0.command(("organizeName"),
@@ -56,11 +51,7 @@ if #available(OSX 10.12, *) {
         }
     }
 
-
     main().run()
-
-
-
 
 } else {
         print("""
