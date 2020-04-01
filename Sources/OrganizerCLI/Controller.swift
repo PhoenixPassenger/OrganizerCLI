@@ -53,7 +53,20 @@ class Controller: NSObject {
         set.insert(charactersIn: ", ;.")
         let fileToSniff:String = path
         let dirURL = home.appendingPathComponent(fileToSniff)
-        let fileURLs = try fileManager.contentsOfDirectory(at: dirURL, includingPropertiesForKeys: nil)
+        let fileURLs:[URL]
+        do {
+            fileURLs = try fileManager.contentsOfDirectory(at: dirURL, includingPropertiesForKeys: nil)
+        } catch {
+            print(
+                    """
+            
+            There is no such directory
+            
+            """.bold().red())
+                
+                exit(0)
+        }
+        
         
         for file in fileURLs {
             if !extensions.contains(file.pathExtension) && file.pathExtension != ""{
@@ -148,8 +161,19 @@ class Controller: NSObject {
         
         let fileToSniff:String = path
         let dirURL = home.appendingPathComponent(fileToSniff)
-        let fileURLs = try fileManager.contentsOfDirectory(at: dirURL, includingPropertiesForKeys: nil)
-           
+        let fileURLs:[URL]
+        do {
+            fileURLs = try fileManager.contentsOfDirectory(at: dirURL, includingPropertiesForKeys: nil)
+        } catch {
+            print(
+                    """
+            
+            There is no such directory
+            
+            """.bold().red())
+                
+                exit(0)
+        }
         for file in fileURLs {
             if !extensions.contains(file.pathExtension) && file.pathExtension != ""{
                 extensions.append(file.pathExtension)
@@ -232,11 +256,10 @@ class Controller: NSObject {
     
     
     func listAllFiles(_ path : String)throws {
-        let con = Controller.init()
         let fileManager = FileManager.default
         let home = fileManager.homeDirectoryForCurrentUser
         let fullPath =  home.appendingPathComponent(path)
-        let files = con.readFiles(folder: fullPath)
+        let files = readFiles(folder: fullPath)
         for file in files{
             if file.pathExtension.isEmpty {
                 print((file.lastPathComponent).bold().colorize(.darkSeaGreen3_2, background: .black))
