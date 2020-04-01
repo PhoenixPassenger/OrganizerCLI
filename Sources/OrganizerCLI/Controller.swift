@@ -73,7 +73,7 @@ class Controller: NSObject {
                 extensions.append(file.pathExtension)
             }
         }
-        
+        print("Which files do you want to organize".magenta().bold())
         for ext in extensions{
             var linha = String(1+(extensions.firstIndex(of: ext)!))
             linha.append(" : ")
@@ -140,7 +140,6 @@ class Controller: NSObject {
                 }
             }
         }
-        //system("clear")
         print(
             """
         
@@ -179,7 +178,7 @@ class Controller: NSObject {
                 extensions.append(file.pathExtension)
             }
         }
-        
+        print("Which files do you want to organize in the folder : \(name)".magenta().bold())
         for ext in extensions{
             var linha = String(1+(extensions.firstIndex(of: ext)!))
             linha.append(" : ")
@@ -245,7 +244,6 @@ class Controller: NSObject {
                 }
             }
         }
-        //system("clear")
         print(
             """
         
