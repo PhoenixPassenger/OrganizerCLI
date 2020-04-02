@@ -9,7 +9,7 @@ Code is compatible with **OSX 10.12 and greater versions**. We'll keep this upda
 ## How to install
 - Clone the repo in xcode
 - Build the project
-- Get the executable from the **.build** folder
+- Get the executable from the **build** folder
 - Move the executable to your **/usr/local/bin**
 
 
