@@ -11,7 +11,10 @@ Code is compatible with **OSX 10.12 and greater versions**. We'll keep this upda
 - Build the project
 - Get the executable from the **build** folder
 - Move the executable to your **/usr/local/bin**
-
+**OR**
+- Open terminal
+- "brew tap PhoenixPassenger/OrganizerCLI"
+- "brew install OrganizerCLI"
 
 ## How to use?
 - To see the list of commands type **OrganizerCLI --help**
