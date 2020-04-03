@@ -7,14 +7,15 @@ Code is compatible with **OSX 10.12 and greater versions**. We'll keep this upda
 :heart_eyes: **Suggestions and contributions are welcome!** :heart_eyes:
 
 ## How to install
+### Cloning
 - Clone the repo in xcode
 - Build the project
 - Get the executable from the **build** folder
-- Move the executable to your **/usr/local/bin**
-**OR**
+- Move the executable to your **/usr/local/bin**   
+### HOMEBREW
 - Open terminal
-- "brew tap PhoenixPassenger/OrganizerCLI"
-- "brew install OrganizerCLI"
+- Type "brew tap PhoenixPassenger/OrganizerCLI"
+- Type "brew install OrganizerCLI"
 
 ## How to use?
 - To see the list of commands type **OrganizerCLI --help**
